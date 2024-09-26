@@ -32,7 +32,7 @@ public class Principal {
                     System.out.println("acción inválida, reintente");
                     reintentar = true;
             }
-        } while (reintentar==true);
+        } while (reintentar);
         
         System.out.println();
     }
@@ -65,6 +65,7 @@ public class Principal {
                 System.out.println(jugador.getNombre()+" esquiva");
             } else if (jugador.isSaltando()!=enemigo.isSaltando()) {
                 enemigo.sufrirGolpe();
+                jugador.ganarPuntos();
                 //jugador.comprobarVida(true);
                 } else {
                     jugador.sufrirGolpe();
@@ -73,8 +74,10 @@ public class Principal {
             
             if (!enemigo.comprobarVida(false))
                 System.out.println(jugador.getNombre()+" venció a "+ enemigo.getNombre());
-            if (!jugador.comprobarVida(false))
+            if (!jugador.comprobarVida(false)) {
                 System.out.println(enemigo.getNombre()+" venció a "+ jugador.getNombre());
+                System.out.println("Puntuación final: "+jugador.ganarPuntos());
+            }
             
             System.out.println();
         }

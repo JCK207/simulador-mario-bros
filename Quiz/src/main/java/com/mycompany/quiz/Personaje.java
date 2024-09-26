@@ -5,6 +5,7 @@ public class Personaje {
     private String nombre;
     private int vida;
     private boolean saltando;
+    private int puntos;
 
     public Personaje(String nombre, int vida) {
         this.nombre = nombre;
@@ -33,9 +34,14 @@ public class Personaje {
     }
     
     
+    public int ganarPuntos() {
+        return this.puntos++;
+    }
+    
+    
     public void sufrirGolpe() {
         System.out.println(this.nombre+" sufrió un golpe");
-        this.vida -= 1;
+        this.vida--;
         comprobarVida(true);
     }
     
